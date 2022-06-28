@@ -7,3 +7,11 @@
 .home select:focus, select:active {
     outline: none;
 }
+
+.home input {
+    height: 30px;
+}
+
+.home input:active, input:focus {
+    outline: none;
+}

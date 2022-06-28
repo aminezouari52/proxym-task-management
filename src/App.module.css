@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-family: Helvetica;
     height: 100vh;
     margin: 0;
