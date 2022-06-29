@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
 import Login from './components/Login/Login'
-import classes from './App.module.css'
-import Home from './components/Home/Home'
+import classes from './App.module.scss'
+import Admin from './components/Admin/Admin'
+import Dev from './components/Dev/Dev'
+import Header from './components/UI/Header'
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -28,11 +30,11 @@ function App() {
 
   return (
     <div className={classes.app}>
-      {/* {!logged && <Login onLog={logState} />} */}
-      {/* {isAdmin && <Home onLogout={logOutHandler} />} */}
-      {!isDev && <Dev onClick={logOutHandler} />}
+      {logged && <Header onLogout={logOutHandler} />}
+      {!logged && <Login onLog={logState} />}
+      {isAdmin && <Admin />}
+      {isDev && <Dev />}
     </div>
-    // amine comment
   )
 }
 

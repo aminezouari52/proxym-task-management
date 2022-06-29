@@ -1,14 +1,31 @@
 import React from 'react'
 
-import Header from '../Header/Header'
-import Card from '../Card/Card'
+import classes from './Dev.module.scss'
+import Header from '../UI/Header'
+import Card from '../UI/Card'
+import Task from './Task'
+import AddTask from './AddTask'
 
 const Dev = (props) => {
+  const tasks = [
+    'Monitoring systems performance.',
+    'Maintain or exceed compliance with industry standards.',
+    'Developing and executing project plans.',
+  ]
+
   return (
-    <div>
-      <Header />
-      <button onClick={props.onClick}>DEV PAGE GO BACK</button>
-    </div>
+    <>
+      <AddTask />
+      <Card>
+        <div className={classes.dev}>
+          <h5>Tasks assigned to me</h5>
+
+          {tasks.map((task) => (
+            <Task key={Math.random().toString()} tasks={tasks} task={task} />
+          ))}
+        </div>
+      </Card>
+    </>
   )
 }
 
