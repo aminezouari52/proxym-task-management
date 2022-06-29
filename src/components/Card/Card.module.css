@@ -1,0 +1,37 @@
+.container form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90vw;
+    background-color: #9fa0ff;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 400px;
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
+}
+
+.container * {
+    margin: 10px;
+}
+
+
+
+
+.container button {
+    background-color: #fff;
+    border: 2px solid #9fa0ff;
+    color: #613dc1;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.container button:hover {
+    background-color: #613dc1;
+    color: #fff;
+    transition: all 0.3s ease;
+}

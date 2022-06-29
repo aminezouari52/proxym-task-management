@@ -1,0 +1,17 @@
+.home select {
+    height: 30px;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.home select:focus, select:active {
+    outline: none;
+}
+
+.home input {
+    height: 30px;
+}
+
+.home input:active, input:focus {
+    outline: none;
+}
