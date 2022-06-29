@@ -28,10 +28,11 @@ function App() {
 
   return (
     <div className={classes.app}>
-      {!logged && <Login onLog={logState} />}
-      {isAdmin && <Home onLogout={logOutHandler} />}
-      {isDev && <button onClick={logOutHandler}>DEV PAGE GO BACK</button>}
+      {/* {!logged && <Login onLog={logState} />} */}
+      {/* {isAdmin && <Home onLogout={logOutHandler} />} */}
+      {!isDev && <Dev onClick={logOutHandler} />}
     </div>
+    // amine comment
   )
 }
 
