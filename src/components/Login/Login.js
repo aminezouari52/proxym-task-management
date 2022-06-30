@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
-import classes from './Login.module.css'
-import Card from '../Card/Card'
+import classes from './Login.module.scss'
+import Card from '../UI/Card'
+import Button from '../UI/Button'
 
 const Login = (props) => {
   const [username, setUsername] = useState('')
@@ -36,10 +37,8 @@ const Login = (props) => {
           id="password"
           onChange={passwordChangeHandler}
         ></input>
-        <button type="submit">Login</button>
-        <h6>
-          dont have an account?<span>sign in</span>
-        </h6>
+        <Button type="submit">Login</Button>
+        <h6>forgot password?</h6>
       </form>
     </Card>
   )

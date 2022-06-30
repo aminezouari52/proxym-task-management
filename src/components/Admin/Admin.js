@@ -1,10 +1,11 @@
 import React from 'react'
 
-import classes from './Home.module.css'
-import Card from '../Card/Card'
-import Header from '../Header/Header'
+import classes from './Admin.module.scss'
+import Card from '../UI/Card'
+import Button from '../UI/Button'
+import Dev from '../Dev/Dev'
 
-const Home = (props) => {
+const Admin = (props) => {
   const tasks = [
     'Monitoring systems performance.',
     'Maintain or exceed compliance with industry standards.',
@@ -21,8 +22,7 @@ const Home = (props) => {
 
   return (
     <>
-      <Header onLogout={props.onLogout} />
-      <Card className={classes.home}>
+      <Card className={classes.admin}>
         <form onSubmit={assignHandler}>
           <label htmlFor="tasks">Choose a task</label>
 
@@ -45,7 +45,7 @@ const Home = (props) => {
           <label htmlFor="date">Pick a deadline</label>
           <input type="date" id="date" />
 
-          <button type="submit">Assign</button>
+          <Button type="submit">Assign</Button>
         </form>
       </Card>
       <Card>
@@ -53,8 +53,9 @@ const Home = (props) => {
           users with no tasks: <span>0</span>
         </h3>
       </Card>
+      <Dev />
     </>
   )
 }
 
-export default Home
+export default Admin

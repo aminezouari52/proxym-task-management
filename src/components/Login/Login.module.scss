@@ -1,0 +1,26 @@
+form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin: auto;
+	font-size: 20px;
+}
+.login {
+	h3 {
+		color: #2c0735;
+		text-align: center;
+	}
+	input {
+		font-size: 20px;
+		height: 30px;
+		border: none;
+		border-radius: 5px;
+		&:focus, &:active {
+            outline: none;
+        }
+	}
+	h6 {
+		cursor: pointer;
+		text-decoration: underline;
+	}
+}
