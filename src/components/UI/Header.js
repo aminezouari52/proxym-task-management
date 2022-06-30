@@ -1,23 +1,26 @@
 import React from 'react'
 
 import classes from './Header.module.scss'
+import Card from './Card'
+import Button from './Button'
 
 const Header = (props) => {
   return (
-    <div className={classes.header}>
+    <Card className={classes.header}>
       <div className={classes.item}>
-        Logged in as <strong>Admin</strong>
+        Logged in as <strong>{props.user}</strong>
       </div>
       <div className={`${classes.item} ${classes.jumpto}`}>
         Jump to Project...
       </div>
-      <button
-        className={`${classes.item} ${classes.signout}`}
+      <Button
+        type="button"
+        className={`${classes.signout}`}
         onClick={props.onLogout}
       >
         Sign out
-      </button>
-    </div>
+      </Button>
+    </Card>
   )
 }
 

@@ -4,6 +4,7 @@
     color: #613dc1;
     font-size: 20px;
     border-radius: 5px;
+    border: none;
     transition: all 0.3s ease;
     cursor: pointer;
     padding: 10px;
@@ -11,5 +12,8 @@
         background-color: #613dc1;
         color: #fff;
         transition: all 0.3s ease;
+    }
+    &:active, &:focus {
+        outline: none;
     }
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 
 import classes from './Dev.module.scss'
-import Header from '../UI/Header'
 import Card from '../UI/Card'
 import Task from './Task'
 import AddTask from './AddTask'
+import Calender from './Calender/Calender'
 
 const Dev = (props) => {
   const tasks = [
@@ -16,6 +16,7 @@ const Dev = (props) => {
   return (
     <>
       <AddTask />
+      <Calender />
       <Card>
         <div className={classes.dev}>
           <h5>Tasks assigned to me</h5>
