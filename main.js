@@ -4,14 +4,17 @@ let win
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 1200,
-    height: 800,
+    width: 800,
+    height: 600,
     backgroundColor: 'white',
     webPreferences: {
       nodeIntegration: false,
       worldSafeExecuteJavaScript: true,
       contextIsolation: true,
     },
+    // icon: 'url',
+    // modal: true, //This only works when the window is a child window
+    enablePreferredSizeMode: true,
   })
 
   win.loadFile('index.html')

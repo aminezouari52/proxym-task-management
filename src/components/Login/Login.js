@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import classes from './Login.module.scss'
 import Card from '../UI/Card'
+import Button from '../UI/Button'
 
 const Login = (props) => {
   const [username, setUsername] = useState('')
@@ -36,7 +37,7 @@ const Login = (props) => {
           id="password"
           onChange={passwordChangeHandler}
         ></input>
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
         <h6>forgot password?</h6>
       </form>
     </Card>

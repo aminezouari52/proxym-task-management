@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Inconsolata:wght@500&family=Roboto+Mono:wght@500&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	overflow: auto;
+}
+
+.logged {
+	height: 100vh;
+}
+
+.app {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	flex-direction: column;
+	overflow: auto;
+}

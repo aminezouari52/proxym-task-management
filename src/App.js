@@ -29,7 +29,7 @@ function App() {
   }
 
   return (
-    <div className={classes.app}>
+    <div className={`${classes.app} ${!logged && classes.logged}`}>
       {logged && <Header onLogout={logOutHandler} />}
       {!logged && <Login onLog={logState} />}
       {isAdmin && <Admin />}

@@ -1,0 +1,16 @@
+.admin {
+	select {
+		height: 30px;
+		border-radius: 3px;
+		font-size: 15px;
+		&:focus, &:active {
+			outline: none;
+		}
+	}
+	input {
+		height: 30px;
+		&:active, &:focus {
+			outline: none;
+		}
+	}
+}
