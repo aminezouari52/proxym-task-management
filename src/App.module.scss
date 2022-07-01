@@ -9,7 +9,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin: 0;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .logged {
@@ -21,5 +22,6 @@ body {
 	justify-content: center;
 	align-items: center;	
 	flex-direction: column;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
