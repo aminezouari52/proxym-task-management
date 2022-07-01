@@ -1,0 +1,59 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    border: 1px solid #ced4da;
+    border-top: none;
+    padding: 0;
+    width: 50px;
+    .task {
+        display: flex;
+        align-items: center;
+        border: 1px solid #fff;
+        margin: 6px;
+        padding: 10px;
+        word-break: break-all;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: #8187dc;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .number {
+        color: #000;
+    }
+
+    h3 {
+        background-color: #ced4da;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (min-width: 100px) {
+    .box {
+        width: 40px;
+    }
+}
+
+@media (min-width: 350px) {
+    .box {
+        width: 80px;
+    }
+}
+
+@media (min-width: 650px) {
+    .box {
+        width: 110px;
+    }
+}
+
+@media (min-width: 800px) {
+    .box {
+        width: 150px;
+    }
+}

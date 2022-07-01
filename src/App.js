@@ -30,10 +30,13 @@ function App() {
 
   return (
     <div className={`${classes.app} ${!logged && classes.logged}`}>
-      {logged && <Header onLogout={logOutHandler} />}
+      {!logged && (
+        <Header onLogout={logOutHandler} user={isAdmin ? 'admin' : 'dev'} />
+      )}
+      {/*
       {!logged && <Login onLog={logState} />}
-      {isAdmin && <Admin />}
-      {isDev && <Dev />}
+      {isAdmin && <Admin />} */}
+      {!isDev && <Dev />}
     </div>
   )
 }

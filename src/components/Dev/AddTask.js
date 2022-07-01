@@ -1,5 +1,9 @@
 import React from 'react'
 
-const AddTask = (props) => {}
+import Card from '../UI/Card'
+
+const AddTask = (props) => {
+  return <Card>AddTask component</Card>
+}
 
 export default AddTask
