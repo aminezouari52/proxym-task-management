@@ -4,6 +4,7 @@ form {
 	flex-direction: column;
 	margin: auto;
 	font-size: 20px;
+	color: #fff;
 }
 .login {
 	h3 {
@@ -13,6 +14,7 @@ form {
 	input {
 		font-size: 20px;
 		height: 30px;
+		margin: 10px;
 		border: none;
 		border-radius: 5px;
 		&:focus, &:active {
