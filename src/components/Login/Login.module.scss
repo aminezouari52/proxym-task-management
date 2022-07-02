@@ -1,28 +1,34 @@
-form {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	margin: auto;
-	font-size: 20px;
-	color: #fff;
-}
+
 .login {
+	form {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		margin: auto;
+		font-size: 20px;
+		color: #fff;
+	}
 	h3 {
 		color: #2c0735;
 		text-align: center;
 	}
-	input {
-		font-size: 20px;
-		height: 30px;
-		margin: 10px;
-		border: none;
-		border-radius: 5px;
-		&:focus, &:active {
-            outline: none;
-        }
+	
+	.block {
+		margin: 0 10px;
+		input {
+			display: block;
+			font-size: 20px;
+			height: 30px;
+			margin: 10px 0;
+			border: none;
+			border-radius: 5px;
+			width: 83vw;
+			&:focus, &:active {
+				outline: none;
+			}
+		}
 	}
-	h6 {
-		cursor: pointer;
-		text-decoration: underline;
+	.button {
+		margin: 0 10px 10px;
 	}
 }

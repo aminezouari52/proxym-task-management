@@ -25,20 +25,27 @@ const Login = (props) => {
     <Card className={classes.login}>
       <form onSubmit={loginHandler}>
         <h3>Welcome!</h3>
-        <label htmlFor="login">Username</label>
-        <input
-          type="textarea"
-          id="login"
-          onChange={usernameChangeHandler}
-        ></input>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          onChange={passwordChangeHandler}
-        ></input>
-        <Button type="submit">Login</Button>
-        <h6>forgot password?</h6>
+        <div className={classes.block}>
+          <label htmlFor="login">Username</label>
+          <input
+            type="textarea"
+            id="login"
+            onChange={usernameChangeHandler}
+          ></input>
+        </div>
+
+        <div className={classes.block}>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            onChange={passwordChangeHandler}
+          ></input>
+        </div>
+
+        <Button type="submit" className={classes.button}>
+          Login
+        </Button>
       </form>
     </Card>
   )
