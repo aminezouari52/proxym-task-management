@@ -42,10 +42,10 @@ const AddTask = (props) => {
 
             <div className={classes.block}>
               <label>Description</label>
-              <input
+              <textarea
                 type="textarea"
                 // onChange={usernameChangeHandler}
-              ></input>
+              ></textarea>
             </div>
             <div className={classes.block}>
               <label>Date</label>
@@ -57,7 +57,9 @@ const AddTask = (props) => {
             <div className={classes.block}>
               <label>Hours</label>
               <input
-                type="time"
+                type="number"
+                min="0"
+                max="99"
                 // onChange={usernameChangeHandler}
               ></input>
             </div>

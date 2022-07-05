@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .add {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
     i {
         color: #fff;
         display: flex;
@@ -42,7 +45,7 @@
         justify-content:space-between;
         flex-wrap:wrap;
         margin: 10px 0;
-        input {
+        input, textarea {
             width: 80%;
         }
     }

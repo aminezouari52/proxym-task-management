@@ -8,10 +8,14 @@ const Header = (props) => {
   return (
     <Card className={classes.header}>
       <div className={classes.item}>
-        Logged in as <strong>{props.user}</strong>
+        Logged in as <strong>{props.userLogged}</strong>
       </div>
-      <div className={classes.item}>Projects</div>
-      <div className={classes.item}>Users</div>
+      <div className={classes.item} onClick={props.showProject}>
+        Projects
+      </div>
+      <div className={classes.item} onClick={props.showUsers}>
+        Users
+      </div>
       <div className={`${classes.item} ${classes.jumpto}`}>
         Jump to Project...
       </div>

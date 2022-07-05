@@ -1,12 +1,11 @@
 import React from 'react'
 
 import classes from './Dev.module.scss'
-import Card from '../UI/Card'
-import Task from './Task'
 import AddTask from './AddTask'
 import Calender from './Calender/Calender'
+import Tasks from './Tasks'
 
-const Dev = (props) => {
+const Dev = () => {
   const tasks = [
     'Monitoring systems performance.',
     'Maintain or exceed compliance with industry standards.',
@@ -17,15 +16,7 @@ const Dev = (props) => {
     <>
       <AddTask />
       <Calender />
-      <Card>
-        <div className={classes.dev}>
-          <h5>Tasks assigned to me</h5>
-
-          {tasks.map((task) => (
-            <Task key={Math.random().toString()} tasks={tasks} task={task} />
-          ))}
-        </div>
-      </Card>
+      <Tasks tasks={tasks} />
     </>
   )
 }

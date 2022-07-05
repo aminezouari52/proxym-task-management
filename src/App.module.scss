@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Inconsolata:wght@500&family=Roboto+Mono:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
 	box-sizing: border-box;
 }
 
 body {
+	font-family: 'Roboto', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,6 +19,7 @@ body {
 }
 
 .app {
+	font-family: 'Roboto', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;	

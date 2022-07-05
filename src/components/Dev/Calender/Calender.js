@@ -18,7 +18,7 @@ const Calender = (props) => {
   }
 
   return (
-    <Card>
+    <Card style={{ backgroundColor: '#fff' }}>
       <div className={classes.weekDays}>
         {calender.map((day) => (
           <div key={Math.random().toString()}>

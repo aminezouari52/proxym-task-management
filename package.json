@@ -13,7 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "@natscale/react-calendar": "^0.0.0-beta.26",
+    "axios": "^0.27.2",
     "electron": "^19.0.6",
+    "js-base64": "^3.7.2",
     "moment": "^2.29.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
