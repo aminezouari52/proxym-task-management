@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import { encode, decode, Base64 } from 'js-base64'
 
 import Login from './components/Login/Login'
 import Admin from './components/Admin/Admin'
@@ -16,14 +18,16 @@ function App() {
   const [users, setUsers] = useState(false)
 
   const logState = (uName, pWord) => {
-    if (uName === 'admin') {
+    if (uName === 'a') {
       setIsAdmin(true)
       setLogged(true)
     }
-    if (uName === 'dev') {
+    if (uName === 'd') {
       setIsDev(true)
       setLogged(true)
     }
+
+    fetchUsers(uName, pWord)
   }
 
   const logOutHandler = () => {
@@ -48,6 +52,29 @@ function App() {
     setLogged(true)
     setProjects(false)
     setUsers(true)
+  }
+
+  const BASE_URL = 'http://localhost/redmine'
+
+  async function fetchUsers(username, password) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${Base64.btoa(`${username}:${password}`)}`,
+      },
+    }
+    const { data } = await axios.get(`${BASE_URL}/my/account.json`, config)
+
+    if (data.user.admin) {
+      setIsAdmin(true)
+      setIsDev(false)
+      setLogged(true)
+    } else {
+      setIsAdmin(false)
+      setIsDev(true)
+      setLogged(true)
+    }
+    console.log(data.user)
   }
 
   return (

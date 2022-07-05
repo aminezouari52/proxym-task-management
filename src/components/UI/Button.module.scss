@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .button {
     background-color: #fff;
     border: 2px solid #9fa0ff;
     color: #613dc1;
+    font-family: 'Roboto', sans-serif;
     font-size: 20px;
     border-radius: 5px;
     border: none;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
     cursor: pointer;
     padding: 10px;
     &:hover {
         background-color: #613dc1;
         color: #fff;
-        transition: all 0.3s ease;
+        transition: all .3s ease;
     }
     &:active, &:focus {
         outline: none;
