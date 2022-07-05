@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-import classes from './Dev.module.scss';
 import AddTask from './AddTask';
 import Calender from './Calender/Calender';
 import Tasks from './Tasks';
+import Card from '../UI/Card';
+import classes from './Dev.module.scss';
 
 const Dev = () => {
   const tasks = [
@@ -25,7 +26,7 @@ const Dev = () => {
   };
 
   return (
-    <>
+    <Card>
       <AddTask />
       <Calender />
       <Tasks
@@ -33,7 +34,7 @@ const Dev = () => {
         onLength={onReadMore}
         length={length}
       />
-    </>
+    </Card>
   );
 };
 

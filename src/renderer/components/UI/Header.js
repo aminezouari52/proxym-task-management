@@ -1,33 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-import classes from './Header.module.scss'
-import Card from './Card'
-import Button from './Button'
+import classes from './Header.module.scss';
+import Card from './Card';
+import Button from './Button';
 
 const Header = (props) => {
   return (
-    <Card className={classes.header}>
-      <div className={classes.item}>
+    <div className={classes.navMenu}>
+      <div>
         Logged in as <strong>{props.userLogged}</strong>
       </div>
-      <div className={classes.item} onClick={props.showProject}>
-        Projects
-      </div>
-      <div className={classes.item} onClick={props.showUsers}>
-        Users
-      </div>
-      <div className={`${classes.item} ${classes.jumpto}`}>
-        Jump to Project...
-      </div>
-      <Button
-        type="button"
-        className={`${classes.signout}`}
-        onClick={props.onLogout}
-      >
-        Sign out
-      </Button>
-    </Card>
-  )
-}
+      <div onClick={props.showProject}>Projects</div>
+      <div onClick={props.showUsers}>Users</div>
+      <div>Jump to Project...</div>
+      <div onClick={props.onLogout}>Sign out</div>
+      {/* <div className={classes.dot}></div> */}
+    </div>
+  );
+};
 
-export default Header
+export default Header;

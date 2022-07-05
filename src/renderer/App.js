@@ -7,6 +7,7 @@ import Admin from './components/Admin/Admin';
 import Dev from './components/Dev/Dev';
 import Projects from './components/Projects/Projects';
 import Users from './components/Users/Users';
+// import Card from './components/UI/Ca'
 import Header from './components/UI/Header';
 import classes from './App.module.scss';
 
@@ -20,15 +21,6 @@ function App() {
   const [isUsers, setIsUsers] = useState(false);
 
   const logState = (uName, pWord) => {
-    // if (uName === 'a') {
-    //   setIsAdmin(true);
-    //   setLogged(true);
-    // }
-    // if (uName === 'd') {
-    //   setIsDev(true);
-    //   setLogged(true);
-    // }
-
     fetchUsers(uName, pWord);
   };
 

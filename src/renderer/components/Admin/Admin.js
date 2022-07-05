@@ -48,11 +48,6 @@ const Admin = (props) => {
           <Button type="submit">Assign</Button>
         </form>
       </Card> */}
-      <Card>
-        <h3>
-          users with no tasks: <span>0</span>
-        </h3>
-      </Card>
       <Dev />
     </>
   );
