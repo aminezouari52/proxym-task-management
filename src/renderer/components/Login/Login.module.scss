@@ -1,0 +1,35 @@
+.login {
+	max-width: 400px;
+	form {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		margin: auto;
+		color: #fff;
+		.block {
+			margin: 0 10px;
+			input {
+				display: block;
+				height: 30px;
+				margin: 10px 0;
+				border: none;
+				border-radius: 5px;
+				width: 100%;
+				&:focus, &:active {
+					outline: none;
+				}
+			}
+		}
+	}
+	h2 {
+		text-align: center;
+	}
+	
+	h4 {
+		margin: 0;
+	}
+	
+	.button {
+		margin: 0 10px 10px;
+	}
+}
