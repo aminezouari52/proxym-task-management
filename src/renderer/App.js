@@ -11,7 +11,7 @@ import Users from './components/Users/Users';
 import Header from './components/UI/Header';
 import classes from './App.module.scss';
 
-var USERS = [];
+const USERS = [];
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -19,6 +19,30 @@ function App() {
   const [isDev, setIsDev] = useState(false);
   const [isProjects, setIsProjects] = useState(false);
   const [isUsers, setIsUsers] = useState(false);
+
+  const BASE_URL = 'http://localhost/redmine';
+
+  async function fetchUsers(username, password) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${Base64.btoa(`${username}:${password}`)}`,
+      },
+    };
+    const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
+
+    if (data.user.admin) {
+      setIsAdmin(true);
+      setIsDev(false);
+      setLogged(true);
+    } else {
+      setIsAdmin(false);
+      setIsDev(true);
+      setLogged(true);
+    }
+
+    localStorage.setItem('api', data.user.api_key);
+  }
 
   const logState = (uName, pWord) => {
     fetchUsers(uName, pWord);
@@ -47,30 +71,6 @@ function App() {
     setIsProjects(false);
     setIsUsers(true);
   };
-
-  const BASE_URL = 'http://localhost/redmine';
-
-  async function fetchUsers(username, password) {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${Base64.btoa(`${username}:${password}`)}`,
-      },
-    };
-    const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
-
-    if (data.user.admin) {
-      setIsAdmin(true);
-      setIsDev(false);
-      setLogged(true);
-    } else {
-      setIsAdmin(false);
-      setIsDev(true);
-      setLogged(true);
-    }
-
-    localStorage.setItem('api', data.user.api_key);
-  }
 
   return (
     <div className={`${classes.app} ${!logged && classes.logged}`}>
