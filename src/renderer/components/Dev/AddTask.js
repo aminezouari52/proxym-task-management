@@ -1,27 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import Card from '../UI/Card'
-import classes from './AddTask.module.scss'
-import Button from '../UI/Button'
+import Card from '../UI/Card';
+import classes from './AddTask.module.scss';
+import Button from '../UI/Button';
 
 const AddTask = (props) => {
-  const [addTask, setAddTask] = useState(false)
+  const [addTask, setAddTask] = useState(false);
 
   const addTaskHandler = () => {
-    setAddTask(true)
-  }
+    setAddTask(true);
+  };
 
   const onSubmitHandler = (event) => {
-    event.preventDefault()
-    setAddTask(false)
-  }
+    event.preventDefault();
+    setAddTask(false);
+  };
 
   return (
-    <Card className={`${!addTask ? classes.add : classes.form}`}>
-      {!addTask && <i onClick={addTaskHandler}>+</i>}
+    <>
+      {!addTask && (
+        <div className={classes.add} onClick={addTaskHandler}>
+          <i className={classes['add-icon']}>+</i>
+          <div>Add a task</div>
+        </div>
+      )}
 
       {addTask && (
-        <div>
+        <div className={classes.form}>
           <h3>New Project</h3>
           <form onSubmit={onSubmitHandler}>
             <div className={classes.block}>
@@ -69,8 +74,8 @@ const AddTask = (props) => {
           </form>
         </div>
       )}
-    </Card>
-  )
-}
+    </>
+  );
+};
 
-export default AddTask
+export default AddTask;

@@ -1,0 +1,15 @@
+.dev {
+    width: 900px;
+}
+
+@media (max-width: 767px) {
+    .dev {
+        width: 500px;
+    }
+}
+
+@media (max-width: 420px) {
+    .dev {
+        width: 300px;
+    }
+}
