@@ -20,7 +20,7 @@ const AddTask = (props) => {
     <>
       {!addTask && (
         <div className={classes.add} onClick={addTaskHandler}>
-          <i className={classes['add-icon']}>+</i>
+          <div className={classes['add-icon']}>+</div>
           <div>Add a task</div>
         </div>
       )}

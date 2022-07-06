@@ -10,6 +10,7 @@ import Users from './components/Users/Users';
 // import Card from './components/UI/Ca'
 import Header from './components/UI/Header';
 import classes from './App.module.scss';
+import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 const USERS = [];
 
@@ -29,23 +30,28 @@ function App() {
         Authorization: `Basic ${Base64.btoa(`${username}:${password}`)}`,
       },
     };
-    const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
+    try {
+      const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
+      if (data.user.admin) {
+        setIsAdmin(true);
+        setIsDev(false);
+        setLogged(true);
+      } else {
+        setIsAdmin(false);
+        setIsDev(true);
+        setLogged(true);
+      }
 
-    if (data.user.admin) {
-      setIsAdmin(true);
-      setIsDev(false);
-      setLogged(true);
-    } else {
-      setIsAdmin(false);
-      setIsDev(true);
-      setLogged(true);
+      localStorage.setItem('api', data.user.api_key);
+    } catch (error) {
+      alert(error);
     }
-
-    localStorage.setItem('api', data.user.api_key);
   }
 
-  const logState = (uName, pWord) => {
-    fetchUsers(uName, pWord);
+  const onLogHandler = (uName, pWord) => {
+    try {
+      fetchUsers(uName, pWord);
+    } catch (error) {}
   };
 
   const logOutHandler = () => {
@@ -84,7 +90,7 @@ function App() {
       )}
       {isUsers && <Users utilisateur={USERS} />}
       {isProjects && <Projects />}
-      {!logged && <Login onLog={logState} />}
+      {!logged && <Login onLog={onLogHandler} />}
       {isAdmin && <Admin />}
       {isDev && <Dev />}
     </div>

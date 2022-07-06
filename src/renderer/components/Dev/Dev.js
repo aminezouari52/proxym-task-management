@@ -18,11 +18,11 @@ const Dev = () => {
     'Developing and executing project plans.',
   ];
 
-  const [length, setLength] = useState(3);
+  const [length, setLength] = useState(2);
 
   const onReadMore = () => {
-    if (length === 3) setLength(tasks.length);
-    else setLength(3);
+    if (length === 2) setLength(tasks.length);
+    else setLength(2);
   };
 
   return (

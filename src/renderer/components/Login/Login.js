@@ -1,29 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
-import classes from './Login.module.scss';
+import ErrorMsg from './ErrorMsg';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
+import classes from './Login.module.scss';
 
 const Login = (props) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const usernameInputRef = useRef();
+  const passwordInputRef = useRef();
 
-  const usernameChangeHandler = (event) => {
-    setUsername(event.target.value);
-  };
+  const [error, setError] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
 
-  const passwordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  // const usernameChangeHandler = (event) => {
+  //   setUsername(event.target.value);
+  // };
+
+  // const passwordChangeHandler = (event) => {
+  //   setPassword(event.target.value);
+  // };
 
   const loginHandler = (event) => {
     event.preventDefault();
-    props.onLog(username, password);
+    const enteredUsername = usernameInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
+
+    if (
+      enteredUsername.trim().length === 0 ||
+      enteredPassword.trim().length === 0 ||
+    ) {
+      setError({
+        title: 'Empty input',
+        message: 'Please fill in the username and the password',
+      });
+
+      if (enteredUsername !== props.username) return;
+    }
+
+    props.onLog(enteredUsername, enteredPassword);
+    usernameInputRef.current.value = '';
+    passwordInputRef.current.value = '';
+  };
+
+  const errorHandler = () => {
+    setError(false);
   };
 
   return (
     <Card className={classes.login}>
-      <form onSubmit={loginHandler}>
+      <form onSubmit={loginHandler} className={error && classes.error}>
         <h2>Log in your account!</h2>
         <div className={classes.block}>
           <label htmlFor="login">
@@ -32,7 +58,8 @@ const Login = (props) => {
           <input
             type="textarea"
             id="login"
-            onChange={usernameChangeHandler}
+            ref={usernameInputRef}
+            // onChange={usernameChangeHandler}
           ></input>
         </div>
 
@@ -43,9 +70,18 @@ const Login = (props) => {
           <input
             type="password"
             id="password"
-            onChange={passwordChangeHandler}
+            ref={passwordInputRef}
+            // onChange={passwordChangeHandler}
           ></input>
         </div>
+
+        {error && (
+          <ErrorMsg
+            title={error.title}
+            message={error.message}
+            onConfirm={errorHandler}
+          />
+        )}
 
         <Button type="submit" className={classes.button}>
           Login

@@ -1,6 +1,15 @@
 .login {
 	max-width: 400px;
     width: 90vw;
+	.error {
+		.block {
+			input {
+				border-color: red;
+				background: #fbdada;
+			}
+		}
+		
+	}
 
 	form {
 		display: flex;
@@ -8,24 +17,27 @@
 		flex-direction: column;
 		margin: auto;
 		color: #fff;
+		
 		.block {
 			margin: 0 10px;
 			input {
+				border: 1px solid #ccc;
 				display: block;
 				height: 30px;
 				margin: 10px 0;
-				border: none;
 				border-radius: 5px;
 				width: 100%;
 				&:focus, &:active {
 					outline: none;
 				}
 			}
+			
 		}
 	}
 	h2 {
 		text-align: center;
 	}
+	
 	
 	h4 {
 		margin: 0;
@@ -35,3 +47,5 @@
 		margin: 0 10px 10px;
 	}
 }
+
+
