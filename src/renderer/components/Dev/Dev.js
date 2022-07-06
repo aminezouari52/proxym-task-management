@@ -26,7 +26,7 @@ const Dev = () => {
   };
 
   return (
-    <Card>
+    <Card className={classes.dev}>
       <AddTask />
       <Calender />
       <Tasks

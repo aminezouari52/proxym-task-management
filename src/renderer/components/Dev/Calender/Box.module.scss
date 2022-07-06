@@ -36,17 +36,17 @@
 
 @media (min-width: 100px) {
     .box {
-        width: 40px;
+        width: 35px;
     }
 }
 
 @media (min-width: 350px) {
     .box {
-        width: 80px;
+        width: 35px;
     }
 }
 
-@media (min-width: 650px) {
+@media (min-width: 420px) {
     .box {
         width: 110px;
     }
@@ -57,3 +57,13 @@
         width: 150px;
     }
 }
+
+// @media (max-width: 420px) {
+//     .navMenu {
+//         width: 60vw;
+//         div {
+//           margin: 0 10px;
+//           font-size: 0.6em;
+//         }
+//     }
+// }
