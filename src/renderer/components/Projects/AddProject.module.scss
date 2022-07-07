@@ -1,0 +1,72 @@
+
+.add {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    border-radius: 25px;
+    padding: 2px 4px;
+    width: 200px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    &:hover {
+        background-color: #fff;
+        color: #757bc8;
+        transition: all 0.4s ease;
+    }
+    
+    .add-icon {
+        font-family: serif;
+        font-size: 25px;
+        font-weight:100;
+    }
+    div {
+        font-size: 25px;
+        font-size: 20px;
+        margin: 0 10px;
+    }
+}
+
+
+.form {
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 4px;
+    form {
+    background-color: #bbadff;
+    color: #000;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 10px;
+    }
+    .block {
+        width:100%;
+        display:flex;
+        align-items: center;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        margin: 10px 0;
+        input {
+            width: 80%;
+        }
+        textarea {
+            width: 80%;
+            resize: none;
+        }
+    }
+    h3 {
+        margin: 10px 0;
+        padding: 2px;
+        border-bottom: 1px solid #ced4da;
+    }
+    .button {
+        color: #000;
+        border: 1px solid #757bc8;
+        font-size: 10px;
+        width: 20vw;
+        padding: 6px 3px;
+        &:hover {
+            background-color: #757bc8;
+        }
+    }
+}

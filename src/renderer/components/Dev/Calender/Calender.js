@@ -1,20 +1,20 @@
-import React from 'react'
-import moment from 'moment'
+import React from 'react';
+import moment from 'moment';
 
-import Card from '../../UI/Card'
-import Box from './Box'
-import classes from './Calender.module.scss'
+import Card from '../../UI/Card';
+import Box from './Box';
+import classes from './Calender.module.scss';
 
 const Calender = (props) => {
-  const value = moment()
-  const startDay = value.clone().startOf('week')
-  const endDay = value.clone().endOf('week')
-  const day = startDay.clone().subtract(1, 'day')
+  const value = moment();
+  const startDay = value.clone().startOf('week');
+  const endDay = value.clone().endOf('week');
+  const day = startDay.clone().subtract(1, 'day');
 
-  const calender = []
+  const calender = [];
 
   while (day.isBefore(endDay, 'day')) {
-    calender.push(day.add(1, 'day').clone())
+    calender.push(day.add(1, 'day').clone());
   }
 
   return (
@@ -32,7 +32,7 @@ const Calender = (props) => {
         ))}
       </div>
     </Card>
-  )
-}
+  );
+};
 
-export default Calender
+export default Calender;

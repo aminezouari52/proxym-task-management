@@ -28,7 +28,7 @@ const Login = (props) => {
 
     if (
       enteredUsername.trim().length === 0 ||
-      enteredPassword.trim().length === 0 ||
+      enteredPassword.trim().length === 0
     ) {
       setError({
         title: 'Empty input',
@@ -59,6 +59,7 @@ const Login = (props) => {
             type="textarea"
             id="login"
             ref={usernameInputRef}
+            onClick={errorHandler}
             // onChange={usernameChangeHandler}
           ></input>
         </div>
@@ -71,6 +72,7 @@ const Login = (props) => {
             type="password"
             id="password"
             ref={passwordInputRef}
+            onClick={errorHandler}
             // onChange={passwordChangeHandler}
           ></input>
         </div>

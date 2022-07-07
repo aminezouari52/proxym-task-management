@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
+import Task from './Task';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import classes from './Tasks.module.scss';
 
-const Task = (props) => {
+const Tasks = (props) => {
   return (
     <Card className={classes.tasks}>
-      <h5>Tasks assigned to me</h5>
+      <h5>Tasks</h5>
       {props.tasks.map((task) => (
-        <div key={Math.random().toString()} className={classes.task}>
-          {task}
-        </div>
+        <Task task={task} />
       ))}
       <button onClick={props.onLength}>
         {props.length === 2 ? 'readmore' : 'readless'}
@@ -19,4 +18,4 @@ const Task = (props) => {
     </Card>
   );
 };
-export default Task;
+export default Tasks;

@@ -7,11 +7,11 @@
   padding-right: 10px;
   h2 {
   font-size: 26px;
-  margin: 20px 40px;
+  margin: 20px 0;
   color: #9fa0ff;
-  // text-align: center;
 }
   .responsive-table {
+    padding: 0;
     li {
       border-radius: 3px;
       padding: 25px 30px;
@@ -39,16 +39,18 @@
       flex-basis: 20%;
     }
     .col-4 {
-      flex-basis: 50%;
+      flex-basis: 40%;
+    }
+    .col-5 {
+      flex-basis: 10%;
     }
     .col {
       margin: 0 10px;
     }
   }
-  @media all and (max-width: 767px) {
-    .container {
-      transform: scale(0.88)
-    }
+  .icon {
+    color: green;
   }
 }
+
 

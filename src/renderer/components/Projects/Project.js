@@ -3,31 +3,28 @@ import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-import classes from './Users.module.scss';
+import classes from './Projects.module.scss';
 
-const User = (props) => {
-  const date = moment(props.user.created).format('MMMM D, YYYY');
-  console.log(props.user.created);
+const Project = (props) => {
+  const date = moment(props.project.created_on).format('MMMM D, YYYY');
 
   return (
     <li className={classes['table-row']}>
       <div className={`${classes.col} ${classes['col-1']}`}>
-        {props.user.admin && (
-          <FontAwesomeIcon icon={faCheckCircle} className={classes.icon} />
-        )}
+        {props.project.id}
       </div>
       <div className={`${classes.col} ${classes['col-2']}`}>
-        {props.user.firstname}
+        {props.project.name}
       </div>
       <div className={`${classes.col} ${classes['col-3']}`}>
-        {props.user.lastname}
+        {props.project.description}
       </div>
       <div className={`${classes.col} ${classes['col-4']}`}>
-        {props.user.mail}
+        {props.project.is_public.toString()}
       </div>
       <div className={`${classes.col} ${classes['col-5']}`}>{date}</div>
     </li>
   );
 };
 
-export default User;
+export default Project;

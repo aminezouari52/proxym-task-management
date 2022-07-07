@@ -15,6 +15,8 @@ import '../../node_modules/bootstrap/scss/bootstrap.scss';
 const USERS = [];
 
 function App() {
+  const storedUserInformation = localStorage.getItem('isLoggedIn');
+
   const [logged, setLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isDev, setIsDev] = useState(false);
@@ -36,22 +38,23 @@ function App() {
         setIsAdmin(true);
         setIsDev(false);
         setLogged(true);
+        localStorage.setItem('role', 'admin');
       } else {
         setIsAdmin(false);
         setIsDev(true);
         setLogged(true);
+        localStorage.setItem('role', 'dev');
       }
 
-      localStorage.setItem('api', data.user.api_key);
+      // localStorage.setItem('api', data.user.api_key);
+      localStorage.setItem('isLoggedIn', '1');
     } catch (error) {
-      alert(error);
+      alert('wrong username or password');
     }
   }
 
   const onLogHandler = (uName, pWord) => {
-    try {
-      fetchUsers(uName, pWord);
-    } catch (error) {}
+    fetchUsers(uName, pWord);
   };
 
   const logOutHandler = () => {
@@ -78,10 +81,25 @@ function App() {
     setIsUsers(true);
   };
 
+  const devHandler = () => {
+    setIsDev(true);
+    setIsAdmin(false);
+    setLogged(true);
+    setIsProjects(false);
+    setIsUsers(false);
+  };
+
+  const homeHandler = () => {
+    setIsDev(true);
+    setIsProjects(false);
+    setIsUsers(false);
+  };
+
   return (
     <div className={`${classes.app} ${!logged && classes.logged}`}>
       {logged && (
         <Header
+          home={homeHandler}
           onLogout={logOutHandler}
           userLogged={isAdmin ? 'admin' : 'dev'}
           showProject={showProjectHandler}

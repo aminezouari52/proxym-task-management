@@ -49,7 +49,7 @@ const Users = (props) => {
           <div className={`${classes.col} ${classes['col-2']}`}>First Name</div>
           <div className={`${classes.col} ${classes['col-3']}`}>Last Name</div>
           <div className={`${classes.col} ${classes['col-4']}`}>E-Mail</div>
-          {/* <div className={`${classes.col} ${classes['col1']}`}>Created</div> */}
+          <div className={`${classes.col} ${classes['col-5']}`}>Created</div>
         </li>
 
         {user.map((users) => (
