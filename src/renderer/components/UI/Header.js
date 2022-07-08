@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import classes from './Header.module.scss';
 import Card from './Card';
@@ -7,13 +8,13 @@ import Button from './Button';
 const Header = (props) => {
   return (
     <div className={classes.navMenu}>
-      <div onClick={props.home}>
+      <NavLink to="/dev">
         Logged in as <strong>{props.userLogged}</strong>
-      </div>
-      <div onClick={props.showProject}>Projects</div>
-      <div onClick={props.showUsers}>Users</div>
-      <div>Jump to Project...</div>
-      <div onClick={props.onLogout}>Sign out</div>
+      </NavLink>
+      <NavLink to="/projects">Projects</NavLink>
+      <NavLink to="/users">Users</NavLink>
+      <a>Jump to Project...</a>
+      <NavLink to="/">Sign out</NavLink>
     </div>
   );
 };

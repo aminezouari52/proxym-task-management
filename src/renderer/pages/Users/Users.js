@@ -3,7 +3,7 @@ import axios from 'axios';
 import { encode, decode, Base64 } from 'js-base64';
 
 import User from './User';
-import Card from '../UI/Card';
+import Card from '../../components/UI/Card';
 import classes from './Users.module.scss';
 import { object } from 'prop-types';
 

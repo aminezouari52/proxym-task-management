@@ -7,11 +7,11 @@
 	justify-content: space-around;
 	width: 100vw;
 	font-family: "Montserrat", sans-serif;
-	div {
+	a {
+		color: #000;
 		text-decoration: none;
-		font-size: 1em;
+		font-size: 0.9em;
 		text-transform: uppercase;
-		font-weight: 500;
 		-webkit-transition: all 0.2s ease-in-out;
 		transition: all 0.2s ease-in-out;
 		cursor: pointer;
@@ -25,7 +25,7 @@
 @media (max-width: 420px) {
   .navMenu {
 	  width: 60vw;
-	  div {
+	  a {
 		margin: 0 10px;
 		  font-size: 0.6em;
 		}

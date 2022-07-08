@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Card from '../UI/Card';
+import Card from '../../components/UI/Card';
 import classes from './AddProject.module.scss';
-import Button from '../UI/Button';
+import Button from '../../components/UI/Button';
 
 const AddTask = (props) => {
   const [addTask, setAddTask] = useState(false);

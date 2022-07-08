@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
 
 import AddTask from './AddTask';
 import Calender from './Calender/Calender';
 import Tasks from './Tasks';
-import Card from '../UI/Card';
+import Card from '../../components/UI/Card';
 import classes from './Dev.module.scss';
 
 const Dev = () => {
@@ -26,15 +27,25 @@ const Dev = () => {
   };
 
   return (
-    <Card className={classes.dev}>
-      <AddTask />
-      <Calender />
-      <Tasks
-        tasks={tasks.slice(0, length)}
-        onLength={onReadMore}
-        length={length}
+    <>
+      <Header
+        home={homeHandler}
+        onLogout={logOutHandler}
+        userLogged={'dev'}
+        showProject={showProjectHandler}
+        showUsers={showUsersHandler}
       />
-    </Card>
+
+      <Card className={classes.dev}>
+        <AddTask />
+        <Calender />
+        <Tasks
+          tasks={tasks.slice(0, length)}
+          onLength={onReadMore}
+          length={length}
+        />
+      </Card>
+    </>
   );
 };
 

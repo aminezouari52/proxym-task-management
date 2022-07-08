@@ -1,28 +1,42 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+import axios from 'axios';
+import { encode, decode, Base64 } from 'js-base64';
 
 import ErrorMsg from './ErrorMsg';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import classes from './Login.module.scss';
+import AuthContext from '../../store/auth-context';
 
 const Login = (props) => {
   const usernameInputRef = useRef();
   const passwordInputRef = useRef();
 
+  const authCtx = useContext(AuthContext);
+
+  const BASE_URL = 'http://localhost/redmine';
+  async function fetchUsers(username, password) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${Base64.btoa(`${username}:${password}`)}`,
+      },
+    };
+    try {
+      const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
+      authCtx.login(data.api_key);
+    } catch (error) {
+      alert('wrong username or password');
+    }
+  }
+
+  // from app.js
+
   const [error, setError] = useState('');
-  // const [username, setUsername] = useState('');
-  // const [password, setPassword] = useState('');
 
-  // const usernameChangeHandler = (event) => {
-  //   setUsername(event.target.value);
-  // };
-
-  // const passwordChangeHandler = (event) => {
-  //   setPassword(event.target.value);
-  // };
-
-  const loginHandler = (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
+
     const enteredUsername = usernameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
@@ -34,11 +48,22 @@ const Login = (props) => {
         title: 'Empty input',
         message: 'Please fill in the username and the password',
       });
-
-      if (enteredUsername !== props.username) return;
+      return;
     }
 
-    props.onLog(enteredUsername, enteredPassword);
+    if (
+      enteredUsername.trim().length < 5 ||
+      enteredPassword.trim().length < 6
+    ) {
+      setError({
+        title: 'short input',
+        message: 'username or password minimum should be at least 6 characters',
+      });
+      return;
+    }
+
+    fetchUsers(enteredUsername, enteredPassword);
+
     usernameInputRef.current.value = '';
     passwordInputRef.current.value = '';
   };
@@ -49,7 +74,7 @@ const Login = (props) => {
 
   return (
     <Card className={classes.login}>
-      <form onSubmit={loginHandler} className={error && classes.error}>
+      <form onSubmit={submitHandler} className={error && classes.error}>
         <h2>Log in your account!</h2>
         <div className={classes.block}>
           <label htmlFor="login">

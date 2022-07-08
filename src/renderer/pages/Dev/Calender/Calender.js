@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import Card from '../../UI/Card';
+import Card from '../../../components/UI/Card';
 import Box from './Box';
 import classes from './Calender.module.scss';
 

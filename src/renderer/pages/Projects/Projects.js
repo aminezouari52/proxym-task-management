@@ -5,7 +5,7 @@ import { encode, decode, Base64 } from 'js-base64';
 import FilterProjects from './FilterProjects';
 import AddProject from './AddProject';
 import Project from './Project';
-import Card from '../UI/Card';
+import Card from '../../components/UI/Card';
 import classes from './Projects.module.scss';
 import { object } from 'prop-types';
 

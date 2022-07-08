@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './Admin.module.scss';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
-import Dev from '../Dev/Dev';
+import Dev from '../../pages/Dev/Dev';
 
 const Admin = (props) => {
   const tasks = [

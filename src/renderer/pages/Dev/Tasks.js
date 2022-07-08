@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import Task from './Task';
-import Card from '../UI/Card';
-import Button from '../UI/Button';
+import Card from '../../components/UI/Card';
+import Button from '../../components/UI/Button';
 import classes from './Tasks.module.scss';
 
 const Tasks = (props) => {
