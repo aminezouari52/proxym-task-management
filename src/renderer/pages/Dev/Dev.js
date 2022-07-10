@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link, Switch, Route, Redirect } from 'react-router-dom';
 
+import Users from '../Users/Users';
+import Header from '../../components/UI/Header';
 import AddTask from './AddTask';
 import Calender from './Calender/Calender';
 import Tasks from './Tasks';
 import Card from '../../components/UI/Card';
 import classes from './Dev.module.scss';
+import Projects from '../Projects/Projects';
 
 const Dev = () => {
   const tasks = [
@@ -25,17 +28,8 @@ const Dev = () => {
     if (length === 2) setLength(tasks.length);
     else setLength(2);
   };
-
   return (
     <>
-      <Header
-        home={homeHandler}
-        onLogout={logOutHandler}
-        userLogged={'dev'}
-        showProject={showProjectHandler}
-        showUsers={showUsersHandler}
-      />
-
       <Card className={classes.dev}>
         <AddTask />
         <Calender />

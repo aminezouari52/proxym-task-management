@@ -1,15 +1,18 @@
 import { createRoot } from 'react-dom/client';
 
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter, HashRouter as Router } from 'react-router-dom';
 
 import App from './App';
+import { AuthContextProvider } from './store/auth-context';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <AuthContextProvider>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </AuthContextProvider>
 );
 
 // calling IPC exposed from preload script

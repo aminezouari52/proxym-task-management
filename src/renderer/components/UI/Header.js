@@ -1,20 +1,28 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useContext } from 'react';
 
+import AuthContext from '../../store/auth-context';
 import classes from './Header.module.scss';
-import Card from './Card';
-import Button from './Button';
 
 const Header = (props) => {
+  const authCtx = useContext(AuthContext);
+
+  const logoutHandler = () => {
+    authCtx.logout();
+  };
   return (
     <div className={classes.navMenu}>
-      <NavLink to="/dev">
-        Logged in as <strong>{props.userLogged}</strong>
+      <NavLink activeClassName={classes.active} to="/dev/dev">
+        Logged in as <strong>{}</strong>
       </NavLink>
-      <NavLink to="/projects">Projects</NavLink>
-      <NavLink to="/users">Users</NavLink>
+      <NavLink activeClassName={classes.active} to="/dev/projects">
+        Projects
+      </NavLink>
+      <NavLink activeClassName={classes.active} to="/dev/users">
+        Users
+      </NavLink>
       <a>Jump to Project...</a>
-      <NavLink to="/">Sign out</NavLink>
+      <a onClick={logoutHandler}>Sign out</a>
     </div>
   );
 };

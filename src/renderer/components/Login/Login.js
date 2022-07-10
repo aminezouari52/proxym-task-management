@@ -24,13 +24,11 @@ const Login = (props) => {
     };
     try {
       const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
-      authCtx.login(data.api_key);
+      authCtx.login(data.user.api_key);
     } catch (error) {
       alert('wrong username or password');
     }
   }
-
-  // from app.js
 
   const [error, setError] = useState('');
 
@@ -77,12 +75,13 @@ const Login = (props) => {
       <form onSubmit={submitHandler} className={error && classes.error}>
         <h2>Log in your account!</h2>
         <div className={classes.block}>
-          <label htmlFor="login">
+          <label htmlFor="username">
             <h4>Username</h4>
           </label>
           <input
             type="textarea"
-            id="login"
+            id="username"
+            required
             ref={usernameInputRef}
             onClick={errorHandler}
             // onChange={usernameChangeHandler}
@@ -96,6 +95,7 @@ const Login = (props) => {
           <input
             type="password"
             id="password"
+            required
             ref={passwordInputRef}
             onClick={errorHandler}
             // onChange={passwordChangeHandler}
