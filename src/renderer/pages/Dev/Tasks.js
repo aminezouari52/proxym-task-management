@@ -6,14 +6,21 @@ import Button from '../../components/UI/Button';
 import classes from './Tasks.module.scss';
 
 const Tasks = (props) => {
+  const [length, setLength] = useState(2);
+
+  const onReadMore = () => {
+    if (length === 2) setLength(props.tasks.length);
+    else setLength(2);
+  };
+  
   return (
     <Card className={classes.tasks}>
       <h5>Tasks</h5>
-      {props.tasks.map((task) => (
-        <Task task={task} />
+      {props.tasks.slice(0, length).map((task) => (
+        <Task key={Math.random().toString()} task={...task} />
       ))}
-      <button onClick={props.onLength}>
-        {props.length === 2 ? 'readmore' : 'readless'}
+      <button onClick={onReadMore}>
+        {length === 2 ? 'readmore' : 'readless'}
       </button>
     </Card>
   );

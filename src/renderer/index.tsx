@@ -4,14 +4,20 @@ import { HashRouter, HashRouter as Router } from 'react-router-dom';
 
 import App from './App';
 import { AuthContextProvider } from './store/auth-context';
+import { ProjectContextProvider } from './store/project-context';
+import { TaskContextProvider } from './store/tasks-context';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 root.render(
   <AuthContextProvider>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <TaskContextProvider>
+      <ProjectContextProvider>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </ProjectContextProvider>
+    </TaskContextProvider>
   </AuthContextProvider>
 );
 

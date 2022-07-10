@@ -32,7 +32,7 @@ const Login = (props) => {
     }
   }
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -76,7 +76,10 @@ const Login = (props) => {
 
   return (
     <Card className={classes.login}>
-      <form onSubmit={submitHandler} className={error && classes.error}>
+      <form
+        onSubmit={submitHandler}
+        className={error ? classes.error : undefined}
+      >
         <h2>Log in your account!</h2>
         <div className={classes.block}>
           <label htmlFor="username">
@@ -85,7 +88,6 @@ const Login = (props) => {
           <input
             type="textarea"
             id="username"
-            required
             ref={usernameInputRef}
             onClick={errorHandler}
             // onChange={usernameChangeHandler}
@@ -99,20 +101,19 @@ const Login = (props) => {
           <input
             type="password"
             id="password"
-            required
             ref={passwordInputRef}
             onClick={errorHandler}
             // onChange={passwordChangeHandler}
           ></input>
         </div>
 
-        {error && (
+        {error ? (
           <ErrorMsg
             title={error.title}
             message={error.message}
             onConfirm={errorHandler}
           />
-        )}
+        ) : undefined}
 
         <Button type="submit" className={classes.button}>
           Login

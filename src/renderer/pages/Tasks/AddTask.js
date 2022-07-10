@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Card from '../../components/UI/Card';
-import classes from './AddProject.module.scss';
+import classes from './AddTask.module.scss';
 import Button from '../../components/UI/Button';
 
 const AddTask = (props) => {
@@ -21,13 +21,13 @@ const AddTask = (props) => {
       {!addTask && (
         <div className={classes.add} onClick={addTaskHandler}>
           <div className={classes['add-icon']}>+</div>
-          <div>New project</div>
+          <div>New Task</div>
         </div>
       )}
 
       {addTask && (
         <div className={classes.form}>
-          <h3>New Project</h3>
+          <h3>New Task</h3>
           <form onSubmit={onSubmitHandler}>
             <div className={classes.block}>
               <label>Name</label>
@@ -38,7 +38,7 @@ const AddTask = (props) => {
             </div>
 
             <div className={classes.block}>
-              <label>Project ID</label>
+              <label>Task ID</label>
               <input
                 type="textarea"
                 // onChange={usernameChangeHandler}

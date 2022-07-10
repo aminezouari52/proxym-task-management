@@ -16,7 +16,7 @@ const Header = (props) => {
         Logged in as <strong>{}</strong>
       </NavLink>
       <NavLink activeClassName={classes.active} to="/projects">
-        Projects
+        Tasks
       </NavLink>
       <NavLink activeClassName={classes.active} to="/users">
         Users

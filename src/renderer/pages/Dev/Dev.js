@@ -8,7 +8,7 @@ import Calender from './Calender/Calender';
 import Tasks from './Tasks';
 import Card from '../../components/UI/Card';
 import classes from './Dev.module.scss';
-import Projects from '../Projects/Projects';
+import Projects from '../Tasks/Projects';
 
 const Dev = () => {
   const tasks = [
@@ -22,22 +22,12 @@ const Dev = () => {
     'Developing and executing project plans.',
   ];
 
-  const [length, setLength] = useState(2);
-
-  const onReadMore = () => {
-    if (length === 2) setLength(tasks.length);
-    else setLength(2);
-  };
   return (
     <>
       <Card className={classes.dev}>
         <AddTask />
         <Calender />
-        <Tasks
-          tasks={tasks.slice(0, length)}
-          onLength={onReadMore}
-          length={length}
-        />
+        <Tasks tasks={tasks} />
       </Card>
     </>
   );

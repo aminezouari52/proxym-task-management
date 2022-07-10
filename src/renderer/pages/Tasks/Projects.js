@@ -1,53 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { encode, decode, Base64 } from 'js-base64';
 
 import FilterProjects from './FilterProjects';
-import AddProject from './AddProject';
+import AddTask from './AddTask';
 import Project from './Project';
 import Card from '../../components/UI/Card';
 import classes from './Projects.module.scss';
 import { object } from 'prop-types';
+import ProjectContext from 'renderer/store/project-context';
+import TaskContext from 'renderer/store/tasks-context';
 
 const Projects = (props) => {
-  const [project, setProject] = useState([]);
+  const projectCtx = useContext(ProjectContext);
+  const taskCtx = useContext(TaskContext);
 
   useEffect(() => {
-    fetchProjects();
-    // return () => {
-    //   DUMMY_USERS = [];
-    // };
-  }, []);
-
-  const BASE_URL = 'http://localhost/redmine';
-
-  async function fetchProjects() {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${Base64.btoa(`${'admin'}:${'12345678'}`)}`,
-      },
-    };
-    const { data } = await axios.get(`${BASE_URL}/projects.json`, config);
-
-    const transformedProjects = data.projects.map((project) => {
-      return {
-        id: project.id,
-        name: project.name,
-        description: project.description,
-        status: project.status,
-        is_public: project.is_public,
-        created_on: project.created_on,
-      };
+    taskCtx.Tasks.then((e) => {
+      setProject(e);
     });
-    console.log(data.projects);
-    setProject(transformedProjects);
-  }
+  }, []);
+  const [project, setProject] = useState([]);
 
   return (
     <div className={classes.container}>
-      <h2>Projects</h2>
-      <AddProject />
+      <h2>Tasks</h2>
+      <AddTask />
       {/* <FilterProjects data={project} /> */}
       <ul className={classes['responsive-table']}>
         <li className={classes['table-header']}>
