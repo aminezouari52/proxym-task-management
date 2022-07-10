@@ -12,15 +12,15 @@ const Home = () => {
       <Header />
 
       <Switch>
-        <Route path="/dev/dev">
+        <Route path="/" exact>
           <Dev />
         </Route>
 
-        <Route path="/dev/projects">
+        <Route path="/projects">
           <Projects />
         </Route>
 
-        <Route path="/dev/users">
+        <Route path="/users">
           <Users />
         </Route>
       </Switch>

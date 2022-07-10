@@ -12,13 +12,13 @@ const Header = (props) => {
   };
   return (
     <div className={classes.navMenu}>
-      <NavLink activeClassName={classes.active} to="/dev/dev">
+      <NavLink activeClassName={classes.active} to="/" exact>
         Logged in as <strong>{}</strong>
       </NavLink>
-      <NavLink activeClassName={classes.active} to="/dev/projects">
+      <NavLink activeClassName={classes.active} to="/projects">
         Projects
       </NavLink>
-      <NavLink activeClassName={classes.active} to="/dev/users">
+      <NavLink activeClassName={classes.active} to="/users">
         Users
       </NavLink>
       <a>Jump to Project...</a>
