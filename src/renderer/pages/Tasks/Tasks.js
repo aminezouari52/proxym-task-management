@@ -23,8 +23,6 @@ const Tasks = (props) => {
     });
   }, []);
 
-  console.log(task);
-
   return (
     <div className={classes.container}>
       <h2>Tasks</h2>

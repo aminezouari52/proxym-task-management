@@ -7,7 +7,6 @@ import classes from './Users.module.scss';
 
 const User = (props) => {
   const date = moment(props.user.created).format('MMMM D, YYYY');
-  console.log(props.user.created);
 
   return (
     <li className={classes['table-row']}>

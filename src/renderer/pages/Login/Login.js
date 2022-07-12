@@ -90,7 +90,6 @@ const Login = (props) => {
             id="username"
             ref={usernameInputRef}
             onClick={errorHandler}
-            // onChange={usernameChangeHandler}
           ></input>
         </div>
 

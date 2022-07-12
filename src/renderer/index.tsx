@@ -6,18 +6,21 @@ import App from './App';
 import { AuthContextProvider } from './store/auth-context';
 import { ProjectContextProvider } from './store/project-context';
 import { TaskContextProvider } from './store/tasks-context';
+import { TrackerContextProvider } from './store/tracker-context';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 root.render(
   <AuthContextProvider>
-    <TaskContextProvider>
-      <ProjectContextProvider>
-        <HashRouter>
-          <App />
-        </HashRouter>
-      </ProjectContextProvider>
-    </TaskContextProvider>
+    <TrackerContextProvider>
+      <TaskContextProvider>
+        <ProjectContextProvider>
+          <HashRouter>
+            <App />
+          </HashRouter>
+        </ProjectContextProvider>
+      </TaskContextProvider>
+    </TrackerContextProvider>
   </AuthContextProvider>
 );
 
