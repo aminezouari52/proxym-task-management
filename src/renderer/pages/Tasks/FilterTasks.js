@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-import classes from './FilterTasks.module.scss';
+import { useState } from 'react';
 
 const FilterTasks = (props) => {
   const [item, setItem] = useState(props.data);

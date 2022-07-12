@@ -30,7 +30,7 @@ const AddTask = (props) => {
           <h3>New Task</h3>
           <form onSubmit={onSubmitHandler}>
             <div className={classes.block}>
-              <label>Name</label>
+              <label>Tracker</label>
               <input
                 type="textarea"
                 // onChange={usernameChangeHandler}
@@ -38,7 +38,7 @@ const AddTask = (props) => {
             </div>
 
             <div className={classes.block}>
-              <label>Task ID</label>
+              <label>Subject</label>
               <input
                 type="textarea"
                 // onChange={usernameChangeHandler}
@@ -46,21 +46,21 @@ const AddTask = (props) => {
             </div>
 
             <div className={classes.block}>
-              <label>Description</label>
+              <label>Status</label>
               <textarea
                 type="textarea"
                 // onChange={usernameChangeHandler}
               ></textarea>
             </div>
-            <div className={classes.block}>
+            {/* <div className={classes.block}>
               <label>Date</label>
               <input
                 type="date"
                 // onChange={usernameChangeHandler}
               ></input>
-            </div>
+            </div> */}
             <div className={classes.block}>
-              <label>Hours</label>
+              <label>Priority</label>
               <input
                 type="number"
                 min="0"
@@ -70,6 +70,14 @@ const AddTask = (props) => {
             </div>
             <Button type="submit" className={classes.button}>
               Create
+            </Button>
+
+            <Button
+              type="button"
+              className={classes.close}
+              onClick={() => setAddTask(false)}
+            >
+              Cancel
             </Button>
           </form>
         </div>

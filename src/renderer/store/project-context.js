@@ -11,8 +11,6 @@ async function fetchProjects() {
 
   const token = authCtx.token;
 
-  console.log(token);
-
   const BASE_URL = 'http://localhost/redmine';
   const config = {
     headers: {

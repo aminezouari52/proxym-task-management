@@ -22,15 +22,13 @@ async function fetchTasks() {
 
   const transformedTasks = data.issues.map((task) => {
     return {
-      //   id: task.id,
-      //   name: task.name,
-      //   description: task.description,
-      //   status: task.status,
-      //   is_public: task.is_public,
-      //   created_on: task.created_on,
+      id: task.id,
+      tracker: task.tracker.name,
+      subject: task.subject,
+      status: task.status.is_closed ? 'active' : 'closed',
+      priority: task.priority.name,
     };
   });
-  console.log(transformedTasks);
   return transformedTasks;
 }
 export const TaskContextProvider = (props) => {

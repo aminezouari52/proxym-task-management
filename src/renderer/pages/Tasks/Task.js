@@ -1,30 +1,31 @@
-import React from 'react';
-import moment from 'moment';
+// import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
-import classes from './Projects.module.scss';
+import classes from './Tasks.module.scss';
 
-const Project = (props) => {
-  const date = moment(props.project.created_on).format('MMMM D, YYYY');
+const Task = (props) => {
+  // const date = moment(props.task.created_on).format('MMMM D, YYYY');
 
   return (
     <li className={classes['table-row']}>
       <div className={`${classes.col} ${classes['col-1']}`}>
-        {props.project.id}
+        {props.task.id}
       </div>
       <div className={`${classes.col} ${classes['col-2']}`}>
-        {props.project.name}
+        {props.task.tracker}
       </div>
       <div className={`${classes.col} ${classes['col-3']}`}>
-        {props.project.description}
+        {props.task.subject}
       </div>
       <div className={`${classes.col} ${classes['col-4']}`}>
-        {props.project.is_public.toString()}
+        {props.task.status}
       </div>
-      <div className={`${classes.col} ${classes['col-5']}`}>{date}</div>
+      <div className={`${classes.col} ${classes['col-5']}`}>
+        {props.task.priority}
+      </div>
     </li>
   );
 };
 
-export default Project;
+export default Task;

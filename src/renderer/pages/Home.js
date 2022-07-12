@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import Dev from './Dev/Dev';
 import Header from '../components/UI/Header';
 import Users from './Users/Users';
-import Projects from './Tasks/Projects';
+import Projects from './Tasks/Tasks';
 
 const Home = () => {
   return (
