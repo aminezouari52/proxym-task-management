@@ -13,13 +13,13 @@ const Task = (props) => {
         {props.task.id}
       </div>
       <div className={`${classes.col} ${classes['col-2']}`}>
-        {props.task.tracker}
+        {props.task.project}
       </div>
       <div className={`${classes.col} ${classes['col-3']}`}>
-        {props.task.subject}
+        {props.task.tracker}
       </div>
       <div className={`${classes.col} ${classes['col-4']}`}>
-        {props.task.status}
+        {props.task.subject}
       </div>
       <div className={`${classes.col} ${classes['col-5']}`}>
         {props.task.priority}

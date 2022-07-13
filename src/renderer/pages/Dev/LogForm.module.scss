@@ -1,0 +1,99 @@
+h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    color: #9fa0ff;
+  }
+.projects {
+    // background-color: red;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px;
+    .project {
+        background-color: #9d4edd;
+        color: #fff;
+        margin: 10px 20px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .4s ease;
+        &:hover {
+            background-color: #5a189a;
+            transition: all .4s ease;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .form {
+//     background-color: #fff;
+//     border-radius: 4px;
+//     padding: 5px;
+//     form {
+//     background-color: #e3e3e3;
+//     color: #000;
+//     border-radius: 6px;
+//     margin: 10px;
+//     padding: 10px;
+//     font-size: 10px;
+//     }
+//     .block {
+//         width:100%;
+//         display:flex;
+//         align-items: center;
+//         justify-content:space-between;
+//         flex-wrap:wrap;
+//         margin: 10px 0;
+//         input {
+//             width: 80%;
+//         }
+//         textarea {
+//             width: 80%;
+//             resize: none;
+//         }
+//     }
+//     h3 {
+//         margin: 10px;
+//         padding: 2px;
+//         border-bottom: 1px solid #ced4da;
+//     }
+//     .button {
+//         color: #000;
+//         border: 1px solid grey;
+//         font-size: 10px;
+//         width: 20vw;
+//         padding: 6px 3px;
+//         &:hover {
+//             color: #000;
+//             background-color: grey;
+//         }
+//     }
+//     .close {
+//         background-color: #fbb1bd;
+//         color: #000;
+//         border: 1px solid grey;
+//         width: 20vw;
+//         font-size: 10px;
+//         margin-left: 10px;
+//         padding: 6px 3px;
+//         &:hover {
+//             color: #000;
+//             background-color: #da1e37;
+//         }
+//     }
+// }

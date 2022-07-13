@@ -9,8 +9,9 @@ import AuthContext from 'renderer/store/auth-context';
 import axios from 'axios';
 
 const AddTask = (props) => {
-  const [formProject, setFormProject] = useState(0);
-  const [formTracker, setFormTracker] = useState(0);
+  const [formProject, setFormProject] = useState(1);
+  const [formTracker, setFormTracker] = useState(1);
+  const [priority, setPriority] = useState(1);
   const subjectRef = useRef();
   // const [tracker, setTracker] = useState('');
   const authCtx = useContext(AuthContext);
@@ -55,8 +56,10 @@ const AddTask = (props) => {
     const task = {
       issue: {
         project_id: formProject,
-        // tracker_id: formTracker,
+        tracker_id: formTracker,
         subject: subjectRef.current.value,
+        priority_id: priority,
+        // assigned_to_id: 1,
       },
     };
     fetchTask(task);
@@ -65,12 +68,20 @@ const AddTask = (props) => {
 
   const trackerHandler = (event) => {
     setFormTracker(event.target.value);
-    console.log(formTracker);
   };
 
   const projectHandler = (event) => {
     setFormProject(event.target.value);
   };
+
+  const priorityHandler = (event) => {
+    setPriority(event.target.value);
+  };
+
+  console.log('project: ', formProject);
+  console.log('tracker: ', formTracker);
+  // console.log(subjectRef.current.value);
+  console.log('priority: ', priority);
 
   return (
     <>
@@ -87,7 +98,7 @@ const AddTask = (props) => {
           <form onSubmit={onSubmitHandler}>
             <div className={classes.block}>
               <label>Tracker</label>
-              <select onChange={trackerHandler}>
+              <select value={formTracker} onChange={trackerHandler}>
                 {tracker.map((trackers) => (
                   <option key={Math.random().toString()} value={trackers.id}>
                     {trackers.name}
@@ -98,7 +109,7 @@ const AddTask = (props) => {
 
             <div className={classes.block}>
               <label>Project</label>
-              <select onChange={projectHandler}>
+              <select value={formProject} onChange={projectHandler}>
                 {project.map((projects) => (
                   <option key={Math.random().toString()} value={projects.id}>
                     {projects.name}
@@ -113,22 +124,13 @@ const AddTask = (props) => {
             </div>
 
             <div className={classes.block}>
-              <label>Status</label>
-              <select>
-                <option>New</option>
-              </select>
-            </div>
-
-            <div className={classes.block}>
               <label>Priority</label>
-              <select>
-                {/* {ctxTracker.map(tracker => {
-                  <option>{tracker.value}</option>
-                })} */}
-                <option>low</option>
-                <option>normal</option>
-                <option>high</option>
-                <option>urgent</option>
+              <select onChange={priorityHandler} value={priority}>
+                <option value="1">Low</option>
+                <option value="2">Normal</option>
+                <option value="3">High</option>
+                <option value="4">Urgent</option>
+                <option value="5">Immediate</option>
               </select>
             </div>
             <Button type="submit" className={classes.button}>

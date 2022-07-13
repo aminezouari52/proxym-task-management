@@ -23,9 +23,9 @@ async function fetchTasks() {
   const transformedTasks = data.issues.map((task) => {
     return {
       id: task.id,
+      project: task.project.name,
       tracker: task.tracker.name,
       subject: task.subject,
-      status: task.status.is_closed ? 'active' : 'closed',
       priority: task.priority.name,
     };
   });
