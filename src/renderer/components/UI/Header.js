@@ -21,7 +21,6 @@ const Header = (props) => {
       <NavLink activeClassName={classes.active} to="/users">
         Users
       </NavLink>
-      <a>Jump to Project...</a>
       <a onClick={logoutHandler}>Sign out</a>
     </div>
   );

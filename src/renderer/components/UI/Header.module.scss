@@ -14,7 +14,7 @@
 		text-transform: uppercase;
 		transition: all 0.2s ease-in-out;
 		cursor: pointer;
-		width: 100px;
+		width: 50px;
 		&:hover {
 			color: #9fa0ff;
 		}
@@ -27,14 +27,14 @@
 	}
 }
 
-@media (max-width: 420px) {
+@media (max-width: 330px) {
   .navMenu {
 	  width: 60vw;
 	  a {
 		margin: 0 10px;
-		  font-size: 0.6em;
-		}
+		font-size: 0.6em;
 	}
+  }
 }
 
 

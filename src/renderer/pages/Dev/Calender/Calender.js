@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 
 import Card from '../../../components/UI/Card';
@@ -17,6 +17,16 @@ const Calender = (props) => {
     calender.push(day.add(1, 'day').clone());
   }
 
+  const [tempTask, setTempTask] = useState([]);
+  const arrayTask = ['one', 'two', '', '', 'five', 'six', ''];
+
+  // console.log(props.date);
+  console.log(props.date.format('d'));
+
+  useEffect(() => {
+    setTempTask(arrayTask);
+  }, []);
+
   return (
     <Card style={{ backgroundColor: '#fff' }}>
       <div className={classes.weekDays}>
@@ -27,8 +37,8 @@ const Calender = (props) => {
         ))}
       </div>
       <div className={classes.calender}>
-        {calender.map((day) => (
-          <Box key={Math.random().toString()} day={day} />
+        {calender.map((day, i) => (
+          <Box date={tempTask[i]} key={Math.random().toString()} day={day} />
         ))}
       </div>
     </Card>

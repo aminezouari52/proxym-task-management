@@ -6,10 +6,19 @@ import classes from './Dev.module.scss';
 import { useState } from 'react';
 
 const Dev = () => {
+  // var curr = new Date();
+  // curr.setDate(curr.getDate());
+  // var currDate = curr.toISOString().substring(0, 10);
+
+  const [date, setDate] = useState('');
   const [logForm, setLogForm] = useState(false);
 
   const logFormHandler = () => {
     setLogForm(true);
+  };
+
+  const dateHandler = (event) => {
+    setDate(event);
   };
 
   return (
@@ -17,11 +26,12 @@ const Dev = () => {
       {!logForm && (
         <>
           <LogTime onClick={logFormHandler} />
-          <Calender />
+          <Calender date={date} />
         </>
       )}
-      {logForm && <LogForm />}
-      <div onClick={() => setLogForm(false)}>reset</div>
+      {logForm && (
+        <LogForm date={dateHandler} onCancel={() => setLogForm(false)} />
+      )}
     </div>
   );
 };
