@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 
+import LogContext from 'renderer/store/log-contex';
 import Card from '../../../components/UI/Card';
 import Box from './Box';
 import classes from './Calender.module.scss';
 
 const Calender = (props) => {
+  const [log, setLog] = useState([]);
+  const logCtx = useContext(LogContext);
   const value = moment();
   const startDay = value.clone().startOf('week');
   const endDay = value.clone().endOf('week');
@@ -21,10 +24,15 @@ const Calender = (props) => {
   const arrayTask = ['one', 'two', '', '', 'five', 'six', ''];
 
   // console.log(props.date);
-  console.log(props.date.format('d'));
 
   useEffect(() => {
     setTempTask(arrayTask);
+  }, []);
+
+  useEffect(() => {
+    logCtx.logs.then((event) => {
+      setLog(event);
+    });
   }, []);
 
   return (

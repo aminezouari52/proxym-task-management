@@ -26,7 +26,7 @@ const Login = (props) => {
     };
     try {
       const { data } = await axios.get(`${BASE_URL}/my/account.json`, config);
-      authCtx.login(data.user.api_key);
+      authCtx.login(data);
     } catch (error) {
       alert('wrong username or password');
     }

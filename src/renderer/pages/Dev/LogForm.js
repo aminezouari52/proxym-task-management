@@ -22,7 +22,7 @@ const LogForm = (props) => {
   }, []);
 
   useEffect(() => {
-    taskCtx.Tasks.then((event) => {
+    taskCtx.filtred_tasks.then((event) => {
       setTask(event);
     });
   }, []);

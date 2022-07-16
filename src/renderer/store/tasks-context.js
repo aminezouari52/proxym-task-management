@@ -4,9 +4,10 @@ import axios from 'axios';
 import AuthContext from './auth-context';
 const TaskContext = React.createContext({
   Tasks: [],
+  filtred_tasks: [],
 });
 
-async function fetchTasks() {
+async function fetchTasks(user_id) {
   const authCtx = useContext(AuthContext);
 
   const token = authCtx.token;
@@ -18,7 +19,10 @@ async function fetchTasks() {
       'X-Redmine-API-Key': token,
     },
   };
-  const { data } = await axios.get(`${BASE_URL}/issues.json`, config);
+  const { data } = await axios.get(
+    `${BASE_URL}/issues.json${user_id ? '?assigned_to_id=' + user_id : ''}`,
+    config
+  );
 
   const transformedTasks = data.issues.map((task) => {
     return {
@@ -33,11 +37,14 @@ async function fetchTasks() {
 }
 export const TaskContextProvider = (props) => {
   const task = fetchTasks();
+  const user = JSON.parse(localStorage.getItem('user'));
+  const filtred_tasks = fetchTasks(user.id);
 
   const [Tasks, setTasks] = useState(task);
 
   const contextValue = {
     Tasks,
+    filtred_tasks,
   };
 
   return (

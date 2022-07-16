@@ -7,20 +7,23 @@ import { AuthContextProvider } from './store/auth-context';
 import { ProjectContextProvider } from './store/project-context';
 import { TaskContextProvider } from './store/tasks-context';
 import { TrackerContextProvider } from './store/tracker-context';
+import { LogContextProvider } from './store/log-contex';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 root.render(
   <AuthContextProvider>
-    <TrackerContextProvider>
-      <TaskContextProvider>
-        <ProjectContextProvider>
-          <HashRouter>
-            <App />
-          </HashRouter>
-        </ProjectContextProvider>
-      </TaskContextProvider>
-    </TrackerContextProvider>
+    <LogContextProvider>
+      <TrackerContextProvider>
+        <TaskContextProvider>
+          <ProjectContextProvider>
+            <HashRouter>
+              <App />
+            </HashRouter>
+          </ProjectContextProvider>
+        </TaskContextProvider>
+      </TrackerContextProvider>
+    </LogContextProvider>
   </AuthContextProvider>
 );
 

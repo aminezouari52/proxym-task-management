@@ -32,9 +32,11 @@ export const AuthContextProvider = (props) => {
     localStorage.removeItem('token');
   }, []);
 
-  const loginHandler = (token) => {
-    setToken(token);
-    localStorage.setItem('token', token);
+  const loginHandler = (data) => {
+    setToken(data.user.api_key);
+    console.log(data);
+    localStorage.setItem('user', JSON.stringify(data.user));
+    localStorage.setItem('token', data.user.api_key);
   };
 
   const contextValue = {
