@@ -23,8 +23,6 @@ const Calender = (props) => {
   const [tempTask, setTempTask] = useState([]);
   const arrayTask = ['one', 'two', '', '', 'five', 'six', ''];
 
-  // console.log(props.date);
-
   useEffect(() => {
     setTempTask(arrayTask);
   }, []);

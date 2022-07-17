@@ -48,7 +48,6 @@ const AddTask = (props) => {
       },
     };
     const { data } = await axios.post(`${BASE_URL}/issues.json`, task, config);
-    console.log(data);
   }
 
   const onSubmitHandler = (event) => {
@@ -59,7 +58,6 @@ const AddTask = (props) => {
         tracker_id: formTracker,
         subject: subjectRef.current.value,
         priority_id: priority,
-        // assigned_to_id: 1,
       },
     };
     fetchTask(task);
@@ -77,11 +75,6 @@ const AddTask = (props) => {
   const priorityHandler = (event) => {
     setPriority(event.target.value);
   };
-
-  console.log('project: ', formProject);
-  console.log('tracker: ', formTracker);
-  // console.log(subjectRef.current.value);
-  console.log('priority: ', priority);
 
   return (
     <>
