@@ -5,7 +5,7 @@ import { encode, decode, Base64 } from 'js-base64';
 import User from './User';
 import Card from '../../components/UI/Card';
 import classes from './Users.module.scss';
-import { object } from 'prop-types';
+// import { object } from 'prop-types';
 
 const Users = (props) => {
   const [user, setUser] = useState([]);

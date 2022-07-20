@@ -30,10 +30,13 @@ async function fetchLogs() {
     `${BASE_URL}/time_entries.json?spent_on=><${startDay}|${endDay}&assigned_to_id=${user_id}`,
     config
   );
+  console.log(data.time_entries);
 
   const transformedLogs = data.time_entries.map((log) => {
     return {
       date: log.spent_on,
+      hours: log.hours,
+      user: log.user.id,
     };
   });
   return transformedLogs;
