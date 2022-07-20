@@ -21,11 +21,6 @@ const Calender = (props) => {
   }
 
   const [tempTask, setTempTask] = useState([]);
-  const arrayTask = ['one', 'two', '', '', 'five', 'six', ''];
-
-  useEffect(() => {
-    setTempTask(arrayTask);
-  }, []);
 
   useEffect(() => {
     logCtx.logs.then((event) => {
@@ -33,6 +28,38 @@ const Calender = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    const firstDay = startDay.format('D');
+    let weekTab = [];
+    for (let index = 0; index < 7; index++) {
+      weekTab[index] = '';
+    }
+    const logLength = log.length;
+    let logIndex = 0;
+    let j = 0;
+    if (logLength) {
+      for (let index = 0; index < 7; index++) {
+        let currentDate = parseInt(log[logIndex].date.slice(-2));
+        console.log('currentDate:', currentDate);
+        console.log('day:', parseInt(firstDay) + index);
+        if (parseInt(firstDay) + index === currentDate) {
+          weekTab[index] += 'task';
+          if (logIndex + 1 == logLength) {
+            break;
+          }
+          // else {
+          //   if (currentDate == parseInt(log[logIndex + 1].date.slice(-2))) {
+          //     // index--;
+          //   }
+          // }
+        }
+      }
+    }
+    setTempTask(weekTab);
+  }, [log]);
+
+  console.log(tempTask);
+  console.log(log);
   return (
     <Card style={{ backgroundColor: '#fff' }}>
       <div className={classes.weekDays}>

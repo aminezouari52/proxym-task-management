@@ -10,7 +10,7 @@ const LogForm = (props) => {
   const dateRef = useRef();
   const hoursRef = useRef();
 
-  const [formTask, setFormTask] = useState(1);
+  const [formTask, setFormTask] = useState();
   const [task, setTask] = useState([]);
   const authCtx = useContext(AuthContext);
   const taskCtx = useContext(TaskContext);
@@ -18,21 +18,22 @@ const LogForm = (props) => {
   useEffect(() => {
     taskCtx.filtred_tasks.then((event) => {
       setTask(event);
+      setFormTask(event[0].id);
     });
   }, []);
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     const log = {
       time_entry: {
         activity_id: 9,
-        issue_id: task.id,
-        spent_on: dateRef,
-        comments: commentRef,
-        hours: hoursRef,
+        issue_id: formTask,
+        spent_on: dateRef.current.value,
+        comments: commentRef.current.value,
+        hours: +hoursRef.current.value,
       },
     };
-    fetchLog(log);
+    await fetchLog(log);
   };
   async function fetchLog(log) {
     const token = authCtx.token;
