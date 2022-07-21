@@ -4,8 +4,8 @@ import { encode, decode, Base64 } from 'js-base64';
 import { useHistory } from 'react-router-dom';
 
 import ErrorMsg from './ErrorMsg';
-import Card from '../../components/UI/Card';
-import Button from '../../components/UI/Button';
+import Card from '../../UI/Card';
+import Button from '../../UI/Button';
 import classes from './Login.module.scss';
 import AuthContext from '../../store/auth-context';
 

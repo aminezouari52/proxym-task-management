@@ -13,8 +13,6 @@ async function fetchLogs() {
   const startDay = value.clone().startOf('week').format('YYYY-MM-DD');
   const endDay = value.clone().endOf('week').format('YYYY-MM-DD');
   const user_id = JSON.parse(localStorage.getItem('user')).id;
-  console.log('start day:', startDay);
-  console.log('end day:', endDay);
   const authCtx = useContext(AuthContext);
 
   const token = authCtx.token;
@@ -30,7 +28,6 @@ async function fetchLogs() {
     `${BASE_URL}/time_entries.json?spent_on=><${startDay}|${endDay}&assigned_to_id=${user_id}`,
     config
   );
-  console.log(data.time_entries);
 
   const transformedLogs = data.time_entries.map((log) => {
     return {

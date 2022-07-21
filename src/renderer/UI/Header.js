@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 
-import AuthContext from '../../store/auth-context';
+import AuthContext from '../store/auth-context';
 import classes from './Header.module.scss';
 
 const Header = (props) => {
@@ -10,10 +10,17 @@ const Header = (props) => {
   const logoutHandler = () => {
     authCtx.logout();
   };
+
+  const IS_ADMIN = JSON.parse(localStorage.getItem('user')).admin;
+
   return (
     <div className={classes.navMenu}>
+      <a className={classes.user}>
+        Logged in as <strong>{IS_ADMIN ? 'admin' : 'dev'}</strong>
+      </a>
+
       <NavLink activeClassName={classes.active} to="/" exact>
-        Logged in as <strong>{}</strong>
+        activity
       </NavLink>
       <NavLink activeClassName={classes.active} to="/projects">
         Tasks

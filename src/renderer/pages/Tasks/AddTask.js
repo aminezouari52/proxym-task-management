@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 
 import Card from '../../components/UI/Card';
 import classes from './AddTask.module.scss';
-import Button from '../../components/UI/Button';
+import Button from '../../UI/Button';
 import ProjectContext from 'renderer/store/project-context';
 import TrackerContext from 'renderer/store/tracker-context';
 import AuthContext from 'renderer/store/auth-context';

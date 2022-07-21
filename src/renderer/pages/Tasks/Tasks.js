@@ -23,10 +23,12 @@ const Tasks = (props) => {
     });
   }, []);
 
+  const IS_ADMIN = JSON.parse(localStorage.getItem('user')).admin;
+
   return (
     <div className={classes.container}>
       <h2>Tasks</h2>
-      <AddTask />
+      {IS_ADMIN && <AddTask />}
       <ul className={classes['responsive-table']}>
         <li className={classes['table-header']}>
           <div className={`${classes.col} ${classes['col-1']}`}>ID</div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Card from '../components/UI/Card';
-import Button from '../../components/UI/Button';
+import Button from '../../UI/Button';
 import classes from './LogTime.module.scss';
 
 const LogTime = (props) => {

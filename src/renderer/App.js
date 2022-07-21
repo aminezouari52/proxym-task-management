@@ -5,7 +5,7 @@ import AuthContext from './store/auth-context';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Dev from './pages/Dev/Dev';
-import Modal from './components/UI/Modal';
+import Modal from './UI/Modal';
 import classes from './App.module.scss';
 import LogContext from './store/log-contex';
 
@@ -25,10 +25,12 @@ function App() {
     setModal(false);
   };
 
-  const user_id = JSON.parse(localStorage.getItem('user')).id;
+  const USER_ID = authCtx.isLoggedIn
+    ? JSON.parse(localStorage.getItem('user')).id
+    : false;
 
   log.map((e) => {
-    if (e.user === user_id && e.hours < 8) {
+    if (e.user === USER_ID && e.hours < 8) {
       setTimeout(() => {
         setModal(true);
       }, 1000);

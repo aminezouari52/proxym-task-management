@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import moment from 'moment';
 
 import LogContext from 'renderer/store/log-contex';
-import Card from '../../../components/UI/Card';
+import Card from '../../../UI/Card';
 import Box from './Box';
 import classes from './Calender.module.scss';
 
@@ -40,8 +40,6 @@ const Calender = (props) => {
     if (logLength) {
       for (let index = 0; index < 7; index++) {
         let currentDate = parseInt(log[logIndex].date.slice(-2));
-        console.log('currentDate:', currentDate);
-        console.log('day:', parseInt(firstDay) + index);
         if (parseInt(firstDay) + index === currentDate) {
           weekTab[index] += 'task';
           if (logIndex + 1 == logLength) {
@@ -58,8 +56,6 @@ const Calender = (props) => {
     setTempTask(weekTab);
   }, [log]);
 
-  console.log(tempTask);
-  console.log(log);
   return (
     <Card style={{ backgroundColor: '#fff' }}>
       <div className={classes.weekDays}>

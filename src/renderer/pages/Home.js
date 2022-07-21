@@ -2,7 +2,7 @@ import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import { useContext } from 'react';
 
 import Dev from './Dev/Dev';
-import Header from '../components/UI/Header';
+import Header from '../UI/Header';
 import Users from './Users/Users';
 import Projects from './Tasks/Tasks';
 

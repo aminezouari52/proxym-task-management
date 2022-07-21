@@ -7,6 +7,12 @@
 	justify-content: space-around;
 	width: 100vw;
 	font-family: "Montserrat", sans-serif;
+	.user {
+		cursor: default;
+		&:hover {
+			color: #000;
+		}
+	}
 	a {
 		color: #000;
 		text-decoration: none;

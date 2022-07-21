@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useContext, useState, useEffect, useRef } from 'react';
 import TaskContext from '../../store/tasks-context';
 import AuthContext from 'renderer/store/auth-context';
-import Button from '../../components/UI/Button';
+import Button from '../../UI/Button';
 import classes from './LogForm.module.scss';
 
 const LogForm = (props) => {
@@ -18,7 +18,6 @@ const LogForm = (props) => {
   useEffect(() => {
     taskCtx.filtred_tasks.then((event) => {
       setTask(event);
-      setFormTask(event[0].id);
     });
   }, []);
 
